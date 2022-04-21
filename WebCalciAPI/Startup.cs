@@ -1,16 +1,16 @@
+using System;
+using AutoMapper;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.HttpsPolicy;
-using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using Microsoft.Extensions.Logging;
 using Microsoft.OpenApi.Models;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+//using WebApiCalculator.Core.Domain.Interfaces;
+//using WebApiCalculator.Infrastructure;
+//using WebApiCalculator.Infrastructure.Repositories;
+//using WebApiCalculator.Infrastructure.Service;
 
 namespace WebCalciAPI
 {
@@ -27,26 +27,51 @@ namespace WebCalciAPI
         public void ConfigureServices(IServiceCollection services)
         {
 
+            // Add Db context.
+           // services.AddDbContextPool<CalculatorDbContext>(options =>
+           // {
+             //   options.UseSqlServer(Configuration.GetConnectionString("CalculatorDb"));
+            //});
+
+            // Add repository.
+            //services.AddScoped<ICalculationRepository, CalculationRepository>();
+            // Add calculator service.
+           // services.AddTransient<ICalculator, Calculator>();
+            // Add Automapper
+            services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
+
             services.AddControllers();
-            services.AddSwaggerGen(c =>
+
+            // Add Swagger
+            services.AddSwaggerGen(setupAction =>
             {
-                c.SwaggerDoc("v1", new OpenApiInfo { Title = "WebCalciAPI", Version = "v1" });
+                setupAction.SwaggerDoc("CalculatorOpenAPISpecification", new OpenApiInfo
+                {
+                    Title = "Calculator Web API",
+                    Version = "1"
+                });
             });
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
+
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
-                app.UseSwagger();
-                app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "WebCalciAPI v1"));
             }
 
             app.UseHttpsRedirection();
 
             app.UseRouting();
+
+            // Configure Swagger
+            app.UseSwagger();
+            app.UseSwaggerUI(setupAction =>
+            {
+                setupAction.SwaggerEndpoint("/swagger/CalculatorOpenAPISpecification/swagger.json", "Calculator API");
+            });
 
             app.UseAuthorization();
 
