@@ -3,7 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.0.32112.339
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebCalciAPI", "WebCalciAPI\WebCalciAPI.csproj", "{5FEA5083-0DBF-4925-96F2-619B45A959F9}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WebCalciAPI", "WebCalciAPI\WebCalciAPI.csproj", "{5FEA5083-0DBF-4925-96F2-619B45A959F9}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WebCalcculator.Core", "WebCalcculator.Core\WebCalcculator.Core.csproj", "{2415278B-6FA4-4F38-83C7-99F88D7DDD9B}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WebCalci.Tests", "WebCalci.Tests\WebCalci.Tests.csproj", "{43336181-548A-4979-8C99-0C1FE2F3B5A8}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +19,14 @@ Global
 		{5FEA5083-0DBF-4925-96F2-619B45A959F9}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{5FEA5083-0DBF-4925-96F2-619B45A959F9}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{5FEA5083-0DBF-4925-96F2-619B45A959F9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2415278B-6FA4-4F38-83C7-99F88D7DDD9B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2415278B-6FA4-4F38-83C7-99F88D7DDD9B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2415278B-6FA4-4F38-83C7-99F88D7DDD9B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2415278B-6FA4-4F38-83C7-99F88D7DDD9B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{43336181-548A-4979-8C99-0C1FE2F3B5A8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{43336181-548A-4979-8C99-0C1FE2F3B5A8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{43336181-548A-4979-8C99-0C1FE2F3B5A8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{43336181-548A-4979-8C99-0C1FE2F3B5A8}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
